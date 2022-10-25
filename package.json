@@ -1,5 +1,5 @@
 {
-  "name": "sprint5",
+  "name": "kimoveis",
   "version": "1.0.0",
   "main": "index.ts",
   "author": "Felipe <felipe.silva@kenzie.com.br>",
@@ -30,6 +30,7 @@
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.5.1",
     "cross-env": "^7.0.3",
+    "docker-compose": "^0.23.17",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",

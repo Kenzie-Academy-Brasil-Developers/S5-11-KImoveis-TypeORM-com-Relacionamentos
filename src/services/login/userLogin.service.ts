@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { AppError } from "../../errors/appError";
 
-const UserLoginService = async ({ email, password }: IUserLogin) => {
+const UserLogin = async ({ email, password }: IUserLogin) => {
 
   const userRepository = AppDataSource.getRepository( User );
 
@@ -28,4 +28,4 @@ const UserLoginService = async ({ email, password }: IUserLogin) => {
   return token;
 };
 
-export default UserLoginService;
+export default UserLogin;

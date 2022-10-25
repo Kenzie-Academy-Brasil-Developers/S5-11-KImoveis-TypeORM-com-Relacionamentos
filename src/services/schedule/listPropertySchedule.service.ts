@@ -2,7 +2,7 @@ import AppDataSource from "../../data-source"
 import { Properties } from "../../entities/properties.entities"
 import { AppError } from "../../errors/appError"
 
-const listScheduleService = async ( id: string ) => {
+const ListScheduleService = async ( id: string ) => {
 
 	const propertyRepository = AppDataSource.getRepository(Properties);
 
@@ -31,4 +31,4 @@ const listScheduleService = async ( id: string ) => {
 	return findSchedule;
 };
 
-export default listScheduleService;
+export default ListScheduleService;
