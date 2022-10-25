@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm"
-import "dotenv/config"
+require('dotenv').config()
 
 const AppDataSource = new DataSource(
     process.env.NODE_ENV === "test" ?
@@ -11,10 +11,10 @@ const AppDataSource = new DataSource(
     } :
     {
         type: "postgres",
-        host: process.env.HOST,
+        host: "localhost",
         port: 5432,
         username: process.env.POSTGRES_USER,
-        password: process.env.POSTGRES_PASSWORD,
+        password: process.env.POSTGRES_PWD,
         database: process.env.POSTGRES_DB,
         logging: true,
         synchronize: false,
@@ -23,4 +23,4 @@ const AppDataSource = new DataSource(
     }
 )
 
-export default AppDataSource
+export default AppDataSource;
