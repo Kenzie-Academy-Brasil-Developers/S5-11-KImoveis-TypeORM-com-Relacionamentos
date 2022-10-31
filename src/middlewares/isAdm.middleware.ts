@@ -4,9 +4,9 @@ const isAdmMiddleware = async ( request: Request, response: Response, next: Next
 
   if ( request.user.isAdm === false ) {
     
-      return response.status(403).json({
-        message: "Somente para Adm !",
-    });
+      return response.status( 403 ).json({
+        message: "Somente para Adm !"
+    })
   }
   return next();
 };

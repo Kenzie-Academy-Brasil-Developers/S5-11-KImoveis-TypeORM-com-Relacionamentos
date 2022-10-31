@@ -9,15 +9,14 @@ import CategoryRoutes from "./routes/categories.routes";
 import PropertiesRoutes from "./routes/properties.routes";
 import ScheduleRoutes from "./routes/schedule.routes";
 
-
 const app = express();
 app.use(express.json());
 
-app.use("/users", UserRoutes);
-app.use("/login", LoginRoutes);
-app.use("/categories", CategoryRoutes);
-app.use("/properties", PropertiesRoutes);
-app.use("/schedules", ScheduleRoutes);
+app.use( "/users",      UserRoutes );
+app.use( "/login",      LoginRoutes );
+app.use( "/categories", CategoryRoutes );
+app.use( "/properties", PropertiesRoutes );
+app.use( "/schedules",  ScheduleRoutes );
 
 app.use(errorHandlingMiddleware);
 

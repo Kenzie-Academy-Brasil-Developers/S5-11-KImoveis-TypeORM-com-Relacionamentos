@@ -7,8 +7,8 @@ import { Router } from "express";
 
 const PropertiesRoutes = Router();
 
-PropertiesRoutes.post("", AuthenticationMiddleware, CreatePropertyController);
+PropertiesRoutes.post( "", AuthenticationMiddleware, CreatePropertyController );
 
-PropertiesRoutes.get("", ListPropertiesController);
+PropertiesRoutes.get( "", ListPropertiesController );
 
 export default PropertiesRoutes;

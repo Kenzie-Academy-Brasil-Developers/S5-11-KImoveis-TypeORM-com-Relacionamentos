@@ -8,8 +8,8 @@ import { Router } from "express";
 
 const ScheduleRoutes = Router();
 
-ScheduleRoutes.post("", AuthenticationMiddleware, CreateScheduleController);
+ScheduleRoutes.post( "", AuthenticationMiddleware, CreateScheduleController );
 
-ScheduleRoutes.get("/properties/:id", AuthenticationMiddleware, isAdmMiddleware, ListPropertyScheduleController);
+ScheduleRoutes.get( "/properties/:id", AuthenticationMiddleware, isAdmMiddleware, ListPropertyScheduleController );
 
 export default ScheduleRoutes;

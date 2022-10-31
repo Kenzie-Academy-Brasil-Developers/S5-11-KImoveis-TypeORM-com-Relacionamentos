@@ -8,10 +8,10 @@ import { Router } from "express";
 
 const CategoryRoutes = Router();
 
-CategoryRoutes.post("", AuthenticationMiddleware, CreateCategoryController);
+CategoryRoutes.post( "", AuthenticationMiddleware, CreateCategoryController );
 
-CategoryRoutes.get("", ListCategoriesController);
+CategoryRoutes.get( "", ListCategoriesController );
 
-CategoryRoutes.get("/:id/properties", ListCategoriesPropertiesController);
+CategoryRoutes.get( "/:id/properties", ListCategoriesPropertiesController );
 
 export default CategoryRoutes;

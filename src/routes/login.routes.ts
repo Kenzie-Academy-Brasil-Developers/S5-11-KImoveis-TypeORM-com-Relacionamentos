@@ -4,6 +4,6 @@ import { Router } from "express";
 
 const LoginRoutes = Router();
 
-LoginRoutes.post("", UserLoginController);
+LoginRoutes.post( "", UserLoginController );
 
 export default LoginRoutes;

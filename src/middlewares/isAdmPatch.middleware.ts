@@ -4,9 +4,9 @@ const isAdmPatchMiddleware = async ( request: Request, response: Response, next:
 
   if ( request.user.isAdm === false ) {
 
-      return response.status(401).json({
+      return response.status( 401 ).json({
         message: "Somente para Adm !"
-    });
+    })
   }
   return next();
 };

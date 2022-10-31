@@ -14,12 +14,12 @@ import { Router } from "express";
 
 const UserRoutes = Router();
 
-UserRoutes.post("", createUsersController);
+UserRoutes.post( "", createUsersController );
 
-UserRoutes.get("", AuthenticationMiddleware, isAdmMiddleware, listUsersController);
+UserRoutes.get( "", AuthenticationMiddleware, isAdmMiddleware, listUsersController );
 
-UserRoutes.patch("/:id", ensureAuthMiddleware, isAdmPatchMiddleware, verifyUpdateForbiddenFieldsMiddleware, updateUserByIdController);
+UserRoutes.patch( "/:id", ensureAuthMiddleware, isAdmPatchMiddleware, verifyUpdateForbiddenFieldsMiddleware, updateUserByIdController );
 
-UserRoutes.delete("/:id", ensureAuthMiddleware, isAdmMiddleware, verifyIsActiveMiddleware, deleteUserController);
+UserRoutes.delete( "/:id", ensureAuthMiddleware, isAdmMiddleware, verifyIsActiveMiddleware, deleteUserController );
 
 export default UserRoutes;

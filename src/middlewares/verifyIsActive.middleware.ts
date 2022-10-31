@@ -6,7 +6,7 @@ const verifyIsActiveMiddleware = async ( request: Request, response: Response, n
 
   const id = request.params.id;
 
-  const userRepository = AppDataSource.getRepository(User);
+  const userRepository = AppDataSource.getRepository( User );
 
   const user = await userRepository.findOne({
     where: { id }
@@ -14,17 +14,17 @@ const verifyIsActiveMiddleware = async ( request: Request, response: Response, n
 
   if ( !user ){
     
-    return response.status(404).json({
-        message: "Usuário não encontrado!",
-    });
-  };
+    return response.status( 404 ).json({
+        message: "Usuário não encontrado!"
+    })
+  }
 
 
   if ( user!.isActive === false ) {
 
-      return response.status(400).json({
-        message: "Usuário inativo!",
-    });
+      return response.status( 400 ).json({
+        message: "Usuário inativo!"
+    })
   }
   return next();
 };
