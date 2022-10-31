@@ -5,22 +5,21 @@ import { User } from '../../entities/user.entities'
 import { AppError } from '../../errors/appError'
 import { IScheduleRequest } from '../../interfaces/schedules'
 
-const createScheduleService = async ( schedule: IScheduleRequest, userId: string ): Promise<Schedules> => {
+const createScheduleService = async ( schedule: IScheduleRequest, userId: string ) => {
 
-	const schedulesRepository = AppDataSource.getRepository(Schedules);
+	const schedulesRepository = AppDataSource.getRepository( Schedules );
 
-	const userRepository = AppDataSource.getRepository(User);
+	const userRepository = AppDataSource.getRepository( User);
 
-	const propertyRepository = AppDataSource.getRepository(Properties);
+	const propertyRepository = AppDataSource.getRepository( Properties );
 
-
-	const getHour = +schedule.hour.split(' : ')[0]
+	const getHour = +schedule.hour.split(' : ')[0];
 
 	if ( getHour < 8 || getHour >= 18 ) {
 		throw new AppError( 400, "Horario invalido, escolha entre 08:00h as 18:00h!" )
 	}
 
-	const getDay = new Date(schedule.date).getDay()
+	const getDay = new Date( schedule.date ).getDay()
 
 	if ( getDay === 0 || getDay === 6 ) {
 		throw new AppError( 400, "Data invalida, escolha outra!" )
@@ -28,7 +27,7 @@ const createScheduleService = async ( schedule: IScheduleRequest, userId: string
 
 	const findUser = await userRepository.findOneBy({ id: userId })
 
-	if (!findUser) {
+	if ( !findUser ) {
 		throw new AppError( 404, "Usuário não encontrado!" )
 	}
 
@@ -53,10 +52,11 @@ const createScheduleService = async ( schedule: IScheduleRequest, userId: string
 	newSchedule.property = findProperty
 	newSchedule.user = findUser
 
-	const createSchedule = schedulesRepository.create(newSchedule)
+	const createSchedule = schedulesRepository.create(newSchedule);
 
-	await schedulesRepository.save(createSchedule)
+	await schedulesRepository.save(createSchedule);
 
-	return createSchedule
+	return createSchedule;
 }
-export default createScheduleService
+
+export default createScheduleService;

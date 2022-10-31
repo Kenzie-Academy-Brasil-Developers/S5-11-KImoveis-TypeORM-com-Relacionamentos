@@ -10,7 +10,7 @@ const ListScheduleService = async ( id: string ) => {
 
 	if ( !property ) {
 		throw new AppError( 404, "Propriedade não encontrada!" )
-	};
+	}
 
 	const findSchedule = await propertyRepository.findOne({
 		where: 
@@ -26,7 +26,7 @@ const ListScheduleService = async ( id: string ) => {
 
 	if ( !findSchedule ) {
 		throw new AppError( 404, "Schedule não encontrada!" )
-	};
+	}
 
 	return findSchedule;
 };

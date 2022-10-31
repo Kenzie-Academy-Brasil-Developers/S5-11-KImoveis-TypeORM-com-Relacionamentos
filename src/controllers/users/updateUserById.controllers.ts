@@ -15,7 +15,7 @@ const updateUserByIdController = async ( request: Request, response: Response ) 
         if ( updateUser instanceof User ){
             return response.json(updateUser);
         }
-        return response.status(updateUser![1] as number).json({
+        return response.status( updateUser![1] as number ).json({
             message: updateUser![0]
         });
 

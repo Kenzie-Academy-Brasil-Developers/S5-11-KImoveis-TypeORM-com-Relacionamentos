@@ -20,7 +20,7 @@ const ListCategoriesPropertiesService = async ( id: string ) => {
 
   if ( !category ) {
     throw new AppError( 404, "Categoria não encontrada!" )
-  };
+  }
 
   return category;
 };

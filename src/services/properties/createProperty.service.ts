@@ -7,11 +7,11 @@ import { Categories } from "../../entities/categories.entities";
 
 const CreatePropertyService = async ({ value, size, address, categoryId, }: IPropertyRequest ) => {
 
-  const propertyRepository = AppDataSource.getRepository(Properties);
+  const propertyRepository = AppDataSource.getRepository( Properties );
 
-  const addressRepository = AppDataSource.getRepository(Adress);
+  const addressRepository = AppDataSource.getRepository( Adress );
 
-  const categoryRepository = AppDataSource.getRepository(Categories);
+  const categoryRepository = AppDataSource.getRepository( Categories );
 
   const addresses = await addressRepository.find();
 
@@ -35,11 +35,11 @@ const CreatePropertyService = async ({ value, size, address, categoryId, }: IPro
   const propertyCategory = categories.find(( targetCategory ) => targetCategory.id === categoryId );
 
   if ( !propertyCategory ) {
-    throw new AppError(404, "Categoria invalida pelo ID")
+    throw new AppError( 404, "Categoria invalida pelo ID!" )
   }
 
   if (address.zipCode.length > 8 ) {
-    throw new AppError(400, "CEP Invalido!" )
+    throw new AppError( 400, "CEP Invalido!" )
   }
 
   if (address.state.length > 2 ) {
@@ -54,9 +54,9 @@ const CreatePropertyService = async ({ value, size, address, categoryId, }: IPro
   newAddress.city = address.city;
   newAddress.state = address.state;
 
-  addressRepository.create(newAddress);
+  addressRepository.create( newAddress );
 
-  await addressRepository.save(newAddress);
+  await addressRepository.save( newAddress );
 
   const date = new Date();
 
@@ -69,12 +69,11 @@ const CreatePropertyService = async ({ value, size, address, categoryId, }: IPro
   property.createdAt = date;
   property.updatedAt = date;
 
-  propertyRepository.create(property);
+  propertyRepository.create( property );
 
-  await propertyRepository.save(property);
+  await propertyRepository.save( property );
 
   return property;
-
 };
 
 export default CreatePropertyService;

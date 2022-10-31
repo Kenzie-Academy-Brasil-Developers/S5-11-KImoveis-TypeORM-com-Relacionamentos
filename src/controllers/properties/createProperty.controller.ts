@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { AppError, handleError } from "../../errors/appError";
+import { IPropertyRequest } from "../../interfaces/properties";
 import CreatePropertyService from "../../services/properties/createProperty.service";
 
 const CreatePropertyController = async ( request: Request, response: Response ) => {
@@ -9,7 +10,7 @@ const CreatePropertyController = async ( request: Request, response: Response ) 
       return response.status(403).send({ message: "Não tem permissão para registrar novos Users!" });
     }
 
-    const { value, size, address, categoryId } = request.body;
+    const { value, size, address, categoryId }: IPropertyRequest = request.body;
 
     const newProperty = await CreatePropertyService({
       value,

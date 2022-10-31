@@ -12,16 +12,16 @@ const CreateCategoryService = async ({ name }: ICategoryRequest) => {
   const findTargetCategory = categories.find(( category ) => category.name === name );
 
   if ( findTargetCategory ) {
-    throw new AppError(400, "Categoria já existente!")
+    throw new AppError( 400, "Categoria já existente!" )
   }
 
   const category = new Categories();
 
   category.name = name;
 
-  categoryRepository.create(category);
+  categoryRepository.create( category );
 
-  await categoryRepository.save(category);
+  await categoryRepository.save( category );
 
   return category;
 };

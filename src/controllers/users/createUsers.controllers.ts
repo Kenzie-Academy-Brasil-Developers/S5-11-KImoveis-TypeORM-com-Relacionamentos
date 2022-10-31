@@ -11,15 +11,15 @@ const createUsersController = async ( request: Request, response: Response ) => 
 
         const newUser = await createUsersServices( user );
         
-        return response.status(201).send(instanceToPlain(newUser));
+        return response.status(201).send(instanceToPlain( newUser ));
 
-    } catch (err) {
+    } catch ( erro ) {
 
-        if (err instanceof Error) {
+        if ( erro instanceof Error ) {
 
             return response.status(400).send({
-                "error": err.name,
-                "message": err.message
+                "error": erro.name,
+                "message": erro.message
             })
         }
     }

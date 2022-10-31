@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import { IUserLogin } from "../../interfaces/users";
 import { AppError } from "../../errors/appError";
 
-const userLoginService = async ({ email, password } : IUserLogin) => {
+const userLoginService = async ({ email, password } : IUserLogin ) => {
 
   const userRepository = AppDataSource.getRepository( User );
 

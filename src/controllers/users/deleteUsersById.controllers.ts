@@ -1,17 +1,17 @@
 import { Request, Response } from "express";
 import deleteUserService from "../../services/users/deleteUsersById.service";
 
-const deleteUserController = async (request: Request, response: Response) => {
+const deleteUserController = async ( request: Request, response: Response ) => {
     try {
         const id: string = request.params.id;
 
-        const user =  await deleteUserService(id);
+        const user =  await deleteUserService( id );
         
-        return response.status(204).json({message: "Usuário Deletado!"});
+        return response.status(204).json({ message: "Usuário Deletado!" });
 
-    } catch (error) {
+    } catch ( error ) {
 
-        if (error instanceof Error) {
+        if ( error instanceof Error ) {
 
             return response.status(403).send({
                 "error": error.name,
@@ -19,6 +19,6 @@ const deleteUserController = async (request: Request, response: Response) => {
             })
         }
     }
-}
+};
 
 export default deleteUserController;

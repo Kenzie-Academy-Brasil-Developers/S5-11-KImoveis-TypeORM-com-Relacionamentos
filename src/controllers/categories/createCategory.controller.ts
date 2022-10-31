@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 import { AppError, handleError } from "../../errors/appError";
+import { IUser } from "../../interfaces/users";
 import CreateCategoryService from "../../services/categories/createCategory.service";
 
 const CreateCategoryController = async ( request: Request, response: Response ) => {
   try {
-    const { name } = request.body;
+    const { name }: IUser = request.body;
 
     if ( !request.user.isAdm ) {
       return response.status(403).send({ message: "Não tem permissão para criar novas categorias!" })

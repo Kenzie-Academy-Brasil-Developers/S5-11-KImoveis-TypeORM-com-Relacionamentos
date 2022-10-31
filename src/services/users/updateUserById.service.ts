@@ -2,16 +2,16 @@ import { User } from "../../entities/user.entities"
 import AppDataSource from "../../data-source"
 import { IUserUpdate } from "../../interfaces/users/index"
 
-const updateUserByIdService = async ({ name, email, password }: IUserUpdate, id: string) => {
+const updateUserByIdService = async ({ name, email, password }: IUserUpdate, id: string ) => {
 
-    const userRepository = AppDataSource.getRepository(User) 
+    const userRepository = AppDataSource.getRepository( User );
 
     const findUserToUpdated = await userRepository.findOneBy({
         id
-    })
+    });
 
-    if (!findUserToUpdated){
-        return["Usuário não encontrado!", 404];
+    if ( !findUserToUpdated ){
+        return[ "Usuário não encontrado!", 404 ]
     }
 
     await userRepository.update(

@@ -3,15 +3,15 @@ import { User } from "../../entities/user.entities"
 
 const deleteUserService = async ( id: string ) => {
     
-    const userRepository = AppDataSource.getRepository(User);
+    const userRepository = AppDataSource.getRepository( User );
 
     const userToDelete = await userRepository.find();
 
-    const account = userToDelete.find(targetUser => targetUser.id === id)
+    const account = userToDelete.find( targetUser => targetUser.id === id );
 
-    account!.isActive = false
+    account!.isActive = false;
 
-    await userRepository.save(account!)
+    await userRepository.save(account!);
 
     return account;
 }
